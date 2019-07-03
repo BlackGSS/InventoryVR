@@ -6,10 +6,19 @@ public class Player : MonoBehaviour
 {
 	private const int MAX_HEALTH = 10;
 
-	public GameObject Teleport, laserUI;
-	public Transform canvasInventory;
-	public HealthUI uiHealth;
-	public GameObject[] WeaponRight, WeaponLeft;
+	public GameObject teleport;
+
+	[SerializeField]
+	private GameObject _laserUI;
+
+	[SerializeField]
+	private Transform _canvasInventory;
+
+	[SerializeField]
+	private HealthUI _uiHealth;
+
+	[SerializeField]
+	private GameObject[] _weaponRight, _weaponLeft;
 
 	private int _currentWeaponLeft = -1, _currentWeaponRight = -1;
 	public int leftHand { get { return _currentWeaponLeft; } }
@@ -20,7 +29,7 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		Invoke("AddItems", 1);
-		_canvasInventoryDefaultScale = canvasInventory.localScale;
+		_canvasInventoryDefaultScale = _canvasInventory.localScale;
 		SetHealth(6);
 		ResetWeapons();
 	}
@@ -30,14 +39,14 @@ public class Player : MonoBehaviour
 	/// </summary>
 	public void ResetWeapons()
 	{
-		for (int i = 0; i < WeaponRight.Length; i++)
+		for (int i = 0; i < _weaponRight.Length; i++)
 		{
-			WeaponRight[i].SetActive(false);
+			_weaponRight[i].SetActive(false);
 		}
 
-		for (int i = 0; i < WeaponLeft.Length; i++)
+		for (int i = 0; i < _weaponLeft.Length; i++)
 		{
-			WeaponLeft[i].SetActive(false);
+			_weaponLeft[i].SetActive(false);
 		}
 	}
 
@@ -49,16 +58,16 @@ public class Player : MonoBehaviour
 	{
 		if (_currentWeaponLeft > -1)
 		{
-			WeaponLeft[_currentWeaponLeft].SetActive(!WeaponLeft[_currentWeaponLeft].activeSelf);
+			_weaponLeft[_currentWeaponLeft].SetActive(!_weaponLeft[_currentWeaponLeft].activeSelf);
 		}
 
 		if (_currentWeaponLeft != index)
 		{
 			_currentWeaponLeft = index;
-			WeaponLeft[_currentWeaponLeft].SetActive(!WeaponLeft[_currentWeaponLeft].activeSelf);
+			_weaponLeft[_currentWeaponLeft].SetActive(!_weaponLeft[_currentWeaponLeft].activeSelf);
 		}
 
-		if (WeaponLeft[_currentWeaponLeft].activeSelf == false)
+		if (_weaponLeft[_currentWeaponLeft].activeSelf == false)
 		{
 			_currentWeaponLeft = -1;
 		}
@@ -68,16 +77,16 @@ public class Player : MonoBehaviour
 	{
 		if (_currentWeaponRight > -1)
 		{
-			WeaponRight[_currentWeaponRight].SetActive(!WeaponRight[_currentWeaponRight].activeSelf);
+			_weaponRight[_currentWeaponRight].SetActive(!_weaponRight[_currentWeaponRight].activeSelf);
 		}
 
 		if (_currentWeaponRight != index)
 		{
 			_currentWeaponRight = index;
-			WeaponRight[_currentWeaponRight].SetActive(!WeaponRight[_currentWeaponRight].activeSelf);
+			_weaponRight[_currentWeaponRight].SetActive(!_weaponRight[_currentWeaponRight].activeSelf);
 		}
 
-		if (WeaponRight[_currentWeaponRight].activeSelf == false)
+		if (_weaponRight[_currentWeaponRight].activeSelf == false)
 		{
 			_currentWeaponRight = -1;
 		}
@@ -97,24 +106,24 @@ public class Player : MonoBehaviour
 	void Update()
 	{
 
-		Teleport.SetActive(GameManager.input.touchpadLeft);
+		teleport.SetActive(GameManager.input.touchpadLeft);
 
-		laserUI.SetActive(GameManager.input.touchpadRight);
+		_laserUI.SetActive(GameManager.input.touchpadRight);
 
 		if (GameManager.input.touchpadRight)
 		{
-			canvasInventory.localScale = _canvasInventoryDefaultScale;
+			_canvasInventory.localScale = _canvasInventoryDefaultScale;
 		}
 		else
 		{
-			canvasInventory.localScale = Vector3.zero;
+			_canvasInventory.localScale = Vector3.zero;
 		}
 	}
 
 	public void SetHealth(int health)
 	{
 		_playerHealth = health;
-		uiHealth.SetValue((float)_playerHealth / MAX_HEALTH);
+		_uiHealth.SetValue((float)_playerHealth / MAX_HEALTH);
 	}
 
 	public void Heal(int health)
@@ -124,7 +133,7 @@ public class Player : MonoBehaviour
 			_playerHealth += health;
 		}
 
-		uiHealth.SetValue((float)_playerHealth / MAX_HEALTH);
+		_uiHealth.SetValue((float)_playerHealth / MAX_HEALTH);
 	}
 
 	private void OnTriggerEnter(Collider Col)

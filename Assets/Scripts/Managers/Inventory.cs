@@ -8,7 +8,7 @@ public class Inventory : MonoBehaviour
 {
 	public GameObject slotsPanel;
 
-	private int cantidadDeSlots = 24;
+	private int _cantidadDeSlots = 24;
 
 	private List<GameObject> slots = new List<GameObject>();
 	private List<ItemData> items = new List<ItemData>();
@@ -16,10 +16,10 @@ public class Inventory : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		for (int i = 0; i < cantidadDeSlots; i++)
+		for (int i = 0; i < _cantidadDeSlots; i++)
 		{
 			items.Add(new ItemData());
-			slots.Add(Instantiate(GameManager.InventorySlot, slotsPanel.transform));
+			slots.Add(Instantiate(GameManager.inventorySlot, slotsPanel.transform));
 		}
 	}
 
@@ -40,7 +40,7 @@ public class Inventory : MonoBehaviour
 				if (items[i].id == -1)
 				{
 					items[i] = itemToAdd;
-					GameObject obj = Instantiate(GameManager.InventoryItem, slots[i].transform);
+					GameObject obj = Instantiate(GameManager.inventoryItem, slots[i].transform);
 					obj.name = items[i].name;
 
 					switch (itemToAdd.type)

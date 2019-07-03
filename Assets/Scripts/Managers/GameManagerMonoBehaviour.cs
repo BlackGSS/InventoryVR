@@ -5,8 +5,8 @@ using UnityEngine;
 
 public static class GameManager
 {
-	public static GameObject InventorySlot;
-	public static GameObject InventoryItem;
+	public static GameObject inventorySlot;
+	public static GameObject inventoryItem;
 
 	public static DataBaseItems dataBaseItems;
 
@@ -24,8 +24,8 @@ public class GameManagerMonoBehaviour : MonoBehaviour
 {
 
 	[Header ("Prefabs Inventario")]
-	public GameObject InventorySlot;
-	public GameObject InventoryItem;
+	public GameObject inventorySlot;
+	public GameObject inventoryItem;
 
 	[Header ("Referencia de escena del panel de slots")]
 	public GameObject slotsPanel;
@@ -40,8 +40,8 @@ public class GameManagerMonoBehaviour : MonoBehaviour
 	{
 		GameManager.player = GameObject.FindObjectOfType<Player>();
 
-		GameManager.InventorySlot = InventorySlot;
-		GameManager.InventoryItem = InventoryItem;
+		GameManager.inventorySlot = inventorySlot;
+		GameManager.inventoryItem = inventoryItem;
 
 		GameObject go = new GameObject("Data Base Items");
 		go.transform.parent = transform;

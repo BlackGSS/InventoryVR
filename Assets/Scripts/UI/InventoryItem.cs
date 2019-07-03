@@ -6,9 +6,10 @@ using UnityEngine.UI;
 
 public class InventoryItem : MonoBehaviour
 {
-	public Color selectedColor;
+	[SerializeField]
+	private Color _selectedColor;
 
-	private Color unselectedColor;
+	private Color _unselectedColor;
 	private Image _img;
 	private Text _text;
 	private Image _parentImage;
@@ -22,7 +23,7 @@ public class InventoryItem : MonoBehaviour
 		_img = GetComponent<Image>();
 		_text = GetComponentInChildren<Text>();
 		_parentImage = transform.parent.GetComponent<Image>();
-		unselectedColor = _parentImage.color;
+		_unselectedColor = _parentImage.color;
 
 		ResetAmount();
 	}
@@ -69,12 +70,12 @@ public class InventoryItem : MonoBehaviour
 
 	public void SetSelected()
 	{
-		_parentImage.color = selectedColor;
+		_parentImage.color = _selectedColor;
 	}
 
 	public void SetUnselected()
 	{
-		_parentImage.color = unselectedColor;
+		_parentImage.color = _unselectedColor;
 	}
 
 }

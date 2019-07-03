@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class LookAt : MonoBehaviour
 {
-	public GameObject Target;
+	[SerializeField]
+	GameObject _target;
 	// Use this for initialization
 	void Start()
 	{
@@ -14,6 +15,6 @@ public class LookAt : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		transform.LookAt(Target.transform.position);
+		transform.LookAt(_target.transform.position);
 	}
 }

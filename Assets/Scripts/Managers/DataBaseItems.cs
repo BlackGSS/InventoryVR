@@ -4,25 +4,24 @@ using UnityEngine;
 
 public class DataBaseItems : MonoBehaviour
 {
-	public Data data;
+	[SerializeField]
+	private Data _data;
 
 	public void LoadData()
 	{
-		data = JsonUtility.FromJson<Data>(Resources.Load<TextAsset>("Files/Items").text);
+		_data = JsonUtility.FromJson<Data>(Resources.Load<TextAsset>("Files/Items").text);
 	}
 
 	public ItemData FetchItem(int id)
 	{
-		for (int i = 0; i < data.itemData.Length; i++)
+		for (int i = 0; i < _data.itemData.Length; i++)
 		{
-			if (id == data.itemData[i].id)
+			if (id == _data.itemData[i].id)
 			{
-				return data.itemData[i];
+				return _data.itemData[i];
 			}
 		}
-
 		return null;
-
 	}
 }
 

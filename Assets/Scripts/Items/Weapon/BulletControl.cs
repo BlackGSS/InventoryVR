@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class BulletControl : MonoBehaviour
 {
-	public float speed;
+	[SerializeField]
+	private float _speed;
 
 	// Use this for initialization
 	void Start()
@@ -15,7 +16,7 @@ public class BulletControl : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		transform.Translate(Vector3.forward * speed * Time.deltaTime);
+		transform.Translate(Vector3.forward * _speed * Time.deltaTime);
 	}
 
 	private void OnTriggerEnter(Collider other)

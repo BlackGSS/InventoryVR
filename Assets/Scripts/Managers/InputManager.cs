@@ -38,7 +38,6 @@ public class InputManager : MonoBehaviour
 	//Declaramos el evento
 	public event Action OnTriggerRightDown;
 	
-
 	// Update is called once per frame
 	void Update()
 	{

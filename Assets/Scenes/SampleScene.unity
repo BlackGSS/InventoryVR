@@ -282,7 +282,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f49dad978e685b49849dfc24fb3acb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Target: {fileID: 534669902}
+  _target: {fileID: 534669902}
 --- !u!1001 &108748042
 Prefab:
   m_ObjectHideFlags: 0
@@ -467,9 +467,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c537dc4983ca328418a3fd30d9a0a025, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventorySlot: {fileID: 1700990438167656, guid: ee740b734a909b64aa339f42492827f4,
+  inventorySlot: {fileID: 1700990438167656, guid: ee740b734a909b64aa339f42492827f4,
     type: 2}
-  InventoryItem: {fileID: 1035687730158216, guid: 5c36bc6d3ee50484b930077715218dbb,
+  inventoryItem: {fileID: 1035687730158216, guid: 5c36bc6d3ee50484b930077715218dbb,
     type: 2}
   slotsPanel: {fileID: 1170353491}
   touchpadLeftKey: 116
@@ -800,7 +800,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7519d8843dc9d6b42ac3747d1862e578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 1270257141191944, guid: 18059b38aa6953c4aadad938f5c73aa9, type: 2}
+  _bullet: {fileID: 1270257141191944, guid: 18059b38aa6953c4aadad938f5c73aa9, type: 2}
 --- !u!1 &579997372
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,7 +2291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7519d8843dc9d6b42ac3747d1862e578, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 1270257141191944, guid: 18059b38aa6953c4aadad938f5c73aa9, type: 2}
+  _bullet: {fileID: 1270257141191944, guid: 18059b38aa6953c4aadad938f5c73aa9, type: 2}
 --- !u!1 &1600774942
 GameObject:
   m_ObjectHideFlags: 0
@@ -2495,8 +2495,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4326ced1bf8124983478f9c05e402e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  materialOut: {fileID: 2100000, guid: 632896cd1cd05a94595e9059c3bd8074, type: 2}
-  materialIn: {fileID: 2100000, guid: 634cd0293d338d442b317f16ea244678, type: 2}
+  _materialOut: {fileID: 2100000, guid: 632896cd1cd05a94595e9059c3bd8074, type: 2}
+  _materialIn: {fileID: 2100000, guid: 634cd0293d338d442b317f16ea244678, type: 2}
 --- !u!1 &1767926860
 GameObject:
   m_ObjectHideFlags: 0
@@ -2555,13 +2555,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9eba17fab5f41e42a3b84b575362eae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Teleport: {fileID: 2077936866}
-  laserUI: {fileID: 1681478493}
-  canvasInventory: {fileID: 1340835137}
-  uiHealth: {fileID: 1788583828}
-  WeaponRight:
+  teleport: {fileID: 2077936866}
+  _laserUI: {fileID: 1681478493}
+  _canvasInventory: {fileID: 1340835137}
+  _uiHealth: {fileID: 1788583828}
+  _weaponRight:
   - {fileID: 1521481050}
-  WeaponLeft:
+  _weaponLeft:
   - {fileID: 544672905}
 --- !u!65 &1767926864
 BoxCollider:

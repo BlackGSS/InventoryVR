@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-
-	public GameObject Bullet;
+	[SerializeField]
+	private GameObject _bullet;
 
 	// Use this for initialization
 	void Start()
@@ -19,12 +19,12 @@ public class GunController : MonoBehaviour
 		if (gameObject.activeSelf)
 		{
 			//
-			if (GameManager.input.triggerLeftDown && GameManager.player.Teleport.activeSelf == false)
+			if (GameManager.input.triggerLeftDown && GameManager.player.teleport.activeSelf == false)
 			{
 				GameManager.soundManager.CreateSound(3);
-				GameObject NewBullet = Instantiate(Bullet, new Vector3(transform.position.x - 0.01f, transform.position.y + 0.08f, transform.position.z + 0.10f), Quaternion.Euler(0,0,0));
-				NewBullet.transform.rotation = Camera.main.transform.rotation;
-				Destroy(NewBullet, 3);
+				GameObject newBullet = Instantiate(_bullet, new Vector3(transform.position.x - 0.01f, transform.position.y + 0.08f, transform.position.z + 0.10f), Quaternion.Euler(0,0,0));
+				newBullet.transform.rotation = Camera.main.transform.rotation;
+				Destroy(newBullet, 3);
 			}
 		}
 	}

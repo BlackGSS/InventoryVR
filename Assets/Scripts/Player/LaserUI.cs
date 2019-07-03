@@ -6,52 +6,52 @@ using UnityEngine.UI;
 public class LaserUI : MonoBehaviour
 {
 	[SerializeField]
-	private Material materialOut, materialIn;
+	private Material _materialOut, _materialIn;
 
-	private LineRenderer _LineR;
+	private LineRenderer _lineR;
 	private LayerMask _layerUI;
 
 	private RaycastHit _hitInfo;
 
 	private InventoryItem _currentItem;
 
-	Button exitButton;
+	//Button exitButton;
 
 	// Use this for initialization
 	void Start()
 	{
-		_LineR = GetComponent<LineRenderer>();
+		_lineR = GetComponent<LineRenderer>();
 		_layerUI = LayerMask.GetMask("VR_UI");
 
 		//Suscribirse a un evento.
-		GameManager.input.OnTriggerRightDown += TriggerRightDowAction;
+		GameManager.input.OnTriggerRightDown += TriggerRightDownAction;
 
-		exitButton.onClick.AddListener(TriggerRightDowAction);
+		//exitButton.onClick.AddListener(TriggerRightDowAction);
 
 	}
 
 	//Acción que se realiza al lanzarse el evento. 
-	void TriggerRightDowAction()
+	void TriggerRightDownAction()
 	{
-
+		print("me usan");
 	}
 
 
 	// Update is called once per frame
 	void Update()
 	{
-		_LineR.SetPosition(0, transform.position);
+		_lineR.SetPosition(0, transform.position);
 
 		Vector3 endPosition = transform.position + transform.forward * 100f;
 
 		Ray rayUI = new Ray(transform.position, transform.forward);
 
-		_LineR.material = materialOut;
+		_lineR.material = _materialOut;
 
 		if (Physics.Raycast(rayUI, out _hitInfo, 100f, _layerUI))
 		{
 			endPosition = _hitInfo.point;
-			_LineR.material = materialIn;
+			_lineR.material = _materialIn;
 
 			if (_currentItem != null)
 			{
@@ -70,7 +70,7 @@ public class LaserUI : MonoBehaviour
 			}
 		}
 
-		_LineR.SetPosition(1, endPosition);
+		_lineR.SetPosition(1, endPosition);
 
 		if (_currentItem != null && GameManager.input.triggerRightDown)
 		{
