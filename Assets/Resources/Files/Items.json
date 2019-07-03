@@ -1,0 +1,23 @@
+﻿{
+	"itemData":
+	[
+		{
+			"id":0,
+			"name":"Pistola",
+			"type":1,
+			"description":"Pistola rápida",
+			"damage":20,
+			"spritePath":"Sprites/Items/Gun",
+			"stackable": false
+		},
+		{
+			"id":1,
+			"name": "Poción de vida básica",
+			"type":2,
+			"description":"Poción que restaura un poco de vida",
+			"damage":2,
+			"spritePath":"Sprites/Items/Poti",
+			"stackable": true
+		}
+	]
+}
